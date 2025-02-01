@@ -7,16 +7,47 @@ function UserList() {
     return state.UserReducer;
   });
   console.log(state);
+
+
   return (
     <div>
-      {state.user.map((user) => {
-        return <UserListDisplay user={user} />;
+      {state.users.map((user) => {
+        return <UserListDisplay key={user.id} user={user} />;
       })}
     </div>
   );
 }
 
 export default UserList;
+
+
+
+
+{/* <div>
+import React from "react";
+import { useSelector } from "react-redux";
+import UserListDisplay from "./UserListDisplay";
+
+function UserList() {
+  const state = useSelector((state) => state.UserReducer);
+  console.log(state); // Ensure users are correctly populated
+
+  return (
+    <div>
+      {state.users.length === 0 ? (
+        <p>No users found.</p>
+      ) : (
+        state.users.map((user) => {
+          return <UserListDisplay key={user.id} user={user} />;
+        })
+      )}
+    </div>
+  );
+}
+
+export default UserList;
+
+</div> */}
 
 
 
